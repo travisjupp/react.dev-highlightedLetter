@@ -3,15 +3,12 @@ export default function Letter({
   isHighlighted,
   onHover,
   onToggleStar,
-  checkFocus,
 }) {
   return (
     <li
       className={isHighlighted ? "highlighted" : ""}
-      // onMouseEnter={() => onHover(letter)}
       onFocus={() => {
         onHover(letter);
-        checkFocus();
       }}
       onPointerMove={() => {
         onHover(letter);

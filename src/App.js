@@ -10,14 +10,11 @@ export default function MailClient() {
     setHighlightedLetter(letter);
     console.log("hovered");
   }
-  function checkFocus() {
-    console.log("focused");
-  }
 
   function handleStar(starred) {
     setLetters(
       letters.map((letter) => {
-        if (letter.id === starred.id) {
+        if (letter.id === starred.id) 
           return {
             ...letter,
             isStarred: !letter.isStarred,
@@ -40,7 +37,6 @@ export default function MailClient() {
             isHighlighted={letter === highlightedLetter}
             onHover={handleHover}
             onToggleStar={handleStar}
-            checkFocus={checkFocus}
           />
         ))}
       </ul>
