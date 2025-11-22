@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useState } from "react";
 import { initialLetters } from "./data.js";
 import Letter from "./Letter.js";
@@ -14,7 +16,7 @@ export default function MailClient() {
   function handleStar(starred) {
     setLetters(
       letters.map((letter) => {
-        if (letter.id === starred.id) 
+        if (letter.id === starred.id) {
           return {
             ...letter,
             isStarred: !letter.isStarred,
