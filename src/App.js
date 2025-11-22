@@ -1,15 +1,16 @@
-/* eslint-disable */
-
 import { useState } from "react";
 import { initialLetters } from "./data.js";
 import Letter from "./Letter.js";
 
 export default function MailClient() {
   const [letters, setLetters] = useState(initialLetters);
-  const [highlightedLetter, setHighlightedLetter] = useState(null);
+  // Unduplicate state, use letter.id instead of letter
+  // const [highlightedLetter, setHighlightedLetter] = useState(null);
+  const [highlightedLetterId, setHighlightedLetterId] = useState(null);
 
   function handleHover(letter) {
-    setHighlightedLetter(letter);
+    // setHighlightedLetterId(letter);
+    setHighlightedLetterId(letter.id);
     console.log("hovered");
   }
 
@@ -36,7 +37,8 @@ export default function MailClient() {
           <Letter
             key={letter.id}
             letter={letter}
-            isHighlighted={letter === highlightedLetter}
+            // isHighlighted={letter === highlightedLetter}
+            isHighlighted={letter.id === highlightedLetterId}
             onHover={handleHover}
             onToggleStar={handleStar}
           />
